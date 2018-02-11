@@ -1,7 +1,7 @@
-fn ackermann(m: isize, n: isize) -> isize {
-    match m {
-        _ if m == 0 => n + 1,
-        _ if m > 0 && n == 0 => ackermann(m - 1, 1),
+fn ackermann(m: usize, n: usize) -> usize {
+    match (m, n) {
+        (0, n) => n + 1,
+        (m, 0) => ackermann(m - 1, 1),
         _ => ackermann(m, n - 1),
     }
 }
