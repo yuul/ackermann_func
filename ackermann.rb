@@ -7,3 +7,5 @@ def ackermann(m, n)
     return ackermann m - 1, ackermann(m, n - 1)
   end
 end
+
+puts ackermann 4, 2
