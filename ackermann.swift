@@ -1,10 +1,11 @@
 func ackermann(m: UInt, n: UInt) -> UInt {
-    if m == 0 {
-        return n + 1
-    } else if m > 0 && n == 0 {
-        return ackermann(m: m - 1, n: 1)
-    } else {
-        return ackermann(m: m - 1, n: ackermann(m: m, n: n - 1))
+    switch (m, n) {
+    case (0, n):
+      return n + 1
+    case (m, 0):
+      return ackermann(m: m - 1, n: 1)
+    default:
+      return ackermann(m: m - 1, n: ackermann(m: m, n: n - 1))
     }
 }
 
