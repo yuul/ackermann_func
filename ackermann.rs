@@ -1,18 +1,11 @@
-fn ackermann(m: isize, n: isize) -> Result<isize, &'static str> {
-    match m {
-        _ if m == 0 => Ok(n + 1),
-        _ if m > 0 && n == 0 => Ok(ackermann(m - 1, 1).unwrap()),
-        _ if m > 0 && n > 0 => Ok(ackermann(m, n - 1).unwrap()),
-        _ => Err("invalid arguments"),
+fn ackermann(m: usize, n: usize) -> usize {
+    match (m, n) {
+        (0, n) => n + 1,
+        (m, 0) => ackermann(m - 1, 1),
+        _ => ackermann(m, n - 1),
     }
 }
 
 fn main() {
-    println!(
-        "{}",
-        match ackermann(4, 2) {
-            Ok(n) => n,
-            Err(e) => panic!(e),
-        }
-    );
+    println!("{}", ackermann(4, 2));
 }

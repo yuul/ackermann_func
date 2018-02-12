@@ -9,8 +9,7 @@ function ackermann {
   elif (( m > 0 )) && ((n == 0))
   then
     ackermann $(( m - 1 )) 1
-  elif (( m > 0 )) && (( n > 0 ))
-  then
+  else
     ackermann $(( m )) $(( n - 1 ))
     ackermann $(( m - 1 )) $ackres
   fi
